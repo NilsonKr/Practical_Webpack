@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export const Context = React.createContext({});
 
-const Api = 'https://us-central1-gndx-fake-api.cloudfunctions.net/api';
+const Api = 'http://us-central1-gndx-fake-api.cloudfunctions.net/api';
 
 const AppContext = props => {
   const [products, setProducts] = useState([]);

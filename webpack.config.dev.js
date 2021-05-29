@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -12,6 +13,9 @@ module.exports = {
   mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '@assets': path.join(__dirname, '/Assets'),
+    },
   },
   module: {
     rules: [
@@ -40,6 +44,10 @@ module.exports = {
           'stylus-loader',
         ],
       },
+      {
+        test: /\.(png|svg|jpg)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   devServer: {
@@ -54,6 +62,11 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
+    }),
+    new ImageMinimizerPlugin({
+      minimizerOptions: {
+        plugins: [['optipng', { optimizationLevel: 5 }]],
+      },
     }),
   ],
 };
