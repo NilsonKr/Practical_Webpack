@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../context/AppContext';
 import { connect } from 'react-redux';
 import actions from '../actions';
 import '../styles/components/Products.styl';
 import Product from './Product';
 
-const Products = (props) => {
-  const { products } = props;
+const Products = props => {
+  const products = useContext(Context);
 
   const handleAddToCart = product => () => {
     props.addToCart(product);
@@ -26,7 +27,7 @@ const Products = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     products: state.products,
   };

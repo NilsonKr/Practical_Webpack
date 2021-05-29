@@ -5,13 +5,16 @@ import { createStore } from 'redux';
 import App from './routes/App';
 import reducer from './reducers';
 
+import AppContext from './context/AppContext';
 import initialState from './initialState';
 
 const store = createStore(reducer, initialState);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <AppContext>
+      <App />
+    </AppContext>
   </Provider>,
-  document.getElementById('app'),
+  document.getElementById('app')
 );

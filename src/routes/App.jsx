@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import useInitialState from '../hooks/useInitialState';
+import { Context } from '../context/AppContext';
 
 import Home from '../containers/Home';
 import Checkout from '../containers/Checkout';
@@ -8,8 +8,8 @@ import Layout from '../components/Layout';
 import NotFound from '../containers/NotFound';
 
 const App = () => {
-  const products = useInitialState();
-  const isEmpty = Object.keys(products).length;
+  const products = useContext(Context);
+  const isEmpty = products.length;
 
   return isEmpty ? (
     <BrowserRouter>

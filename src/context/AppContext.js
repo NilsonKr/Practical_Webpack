@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+export const Context = React.createContext({});
 
 const Api = 'https://us-central1-gndx-fake-api.cloudfunctions.net/api';
 
-function useInitialState() {
+const AppContext = props => {
   const [products, setProducts] = useState([]);
 
   useEffect(async () => {
@@ -12,7 +14,7 @@ function useInitialState() {
     setProducts(result);
   });
 
-  return products;
-}
+  return <Context.Provider value={products}>{props.children}</Context.Provider>;
+};
 
-export default useInitialState;
+export default AppContext;
