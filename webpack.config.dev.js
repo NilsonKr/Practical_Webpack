@@ -4,12 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: { main: './src/index.js', header: './src/Header/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].bundle.js',
     publicPath: '/',
-    chunkFilename: '[id].[chunkhash].js',
+    chunkFilename: '[name].bundle.js',
   },
   mode: 'development',
   resolve: {
