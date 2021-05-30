@@ -2,15 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import HeadTitle from './HeadTitle';
+
 import '../styles/components/Header.styl';
-import logo from '@assets/logo-gndx.png';
 
 const Header = props => (
   <div className="Header">
-    <h1 className="Header-title">
-      <img src={logo} alt="Logo" width="32px" />
-      <Link to="/">Platzi Store</Link>
-    </h1>
+    <HeadTitle title="Platzi TypeStore" />
     <div className="Header-checkout">
       <Link to="/checkout">
         <i className="fas fa-shopping-basket" />

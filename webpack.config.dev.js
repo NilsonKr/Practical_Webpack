@@ -12,7 +12,7 @@ module.exports = {
   },
   mode: 'development',
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
     alias: {
       '@assets': path.join(__dirname, '/Assets'),
     },
@@ -25,6 +25,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.(tsx|ts)$/,
+        use: 'ts-loader',
       },
       {
         test: /\.html$/,
