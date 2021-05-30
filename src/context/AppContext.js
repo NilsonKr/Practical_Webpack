@@ -12,7 +12,7 @@ const AppContext = props => {
     const result = await data.json();
 
     setProducts(result);
-  });
+  }, []);
 
   return <Context.Provider value={products}>{props.children}</Context.Provider>;
 };

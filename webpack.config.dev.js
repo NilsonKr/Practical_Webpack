@@ -4,11 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = {
-  entry: ['react-hot-loader/patch', './src/index.js'],
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/',
+    chunkFilename: '[id].[chunkhash].js',
   },
   mode: 'development',
   resolve: {
@@ -58,7 +59,6 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     historyApiFallback: true,
     compress: true,
-    hot: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -74,4 +74,9 @@ module.exports = {
       },
     }),
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };

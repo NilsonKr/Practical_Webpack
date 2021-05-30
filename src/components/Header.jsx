@@ -8,7 +8,7 @@ import '../styles/components/Header.styl';
 
 const Header = props => (
   <div className="Header">
-    <HeadTitle title="Platzi TypeStore V1" />
+    <HeadTitle title="Platzi TypeStore" />
     <div className="Header-checkout">
       <Link to="/checkout">
         <i className="fas fa-shopping-basket" />
