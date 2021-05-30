@@ -67,6 +67,7 @@
     "image-minimizer-webpack-plugin": "^2.2.0",
     "imagemin-optipng": "^8.0.0",
     "prettier": "^1.19.1",
+    "react-hot-loader": "^4.13.0",
     "terser-webpack-plugin": "^5.1.2",
     "webpack-dev-server": "^3.9.0"
   },

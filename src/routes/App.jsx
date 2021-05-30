@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Context } from '../context/AppContext';
+import { hot } from 'react-hot-loader/root';
 
 import Home from '../containers/Home';
 import Checkout from '../containers/Checkout';
@@ -26,4 +27,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default hot(App);
