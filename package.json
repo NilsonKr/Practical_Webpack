@@ -69,7 +69,8 @@
     "prettier": "^1.19.1",
     "react-hot-loader": "^4.13.0",
     "terser-webpack-plugin": "^5.1.2",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-manifest-plugin": "^3.1.1"
   },
   "bugs": {
     "url": "https://github.com/gndx/platzi-store/issues"

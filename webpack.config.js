@@ -1,9 +1,12 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 /**
@@ -75,6 +78,9 @@ module.exports = {
         plugins: [['optipng', { optimizationLevel: 5 }]],
       },
     }),
+    new WebpackManifestPlugin({
+      fileName: 'manifest.json',
+    }),
     new CleanWebpackPlugin(),
   ],
   optimization: {
@@ -97,7 +103,7 @@ module.exports = {
           chunks: 'all',
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          filename: 'assets/vendors.[chunkhash.js',
+          filename: 'assets/vendors.[chunkhash].js',
           priority: 10,
           enforce: true,
           reuseExistingChunk: true,
